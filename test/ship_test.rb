@@ -30,6 +30,15 @@ class ShipTest < Minitest::Test
     ship_2 = Ship.new(2, player_board)
     array_indices = ship_2.convert_user_input("A1 B1")
     ship_2.place(array_indices)
+    expected = "Tim\'s Board\n" +
+    "=========\n" +
+    ". 1 2 3 4\n" +
+    "A S      \n" +
+    "B S      \n" +
+    "C        \n" +
+    "D        \n" +
+    "========="
+    assert_equal expected, player_board.print_board
   end
 
 end
