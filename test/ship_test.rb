@@ -29,6 +29,7 @@ class ShipTest < Minitest::Test
   end
 
   def test_can_be_placed_at_coordinates
+    skip
     player_board = Board.new("Tim")
     player_coords = Coordinates.new(player_board)
     ship_2 = Ship.new(2, player_coords)
