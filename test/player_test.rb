@@ -1,4 +1,4 @@
-require './test_helper'
+require './test/test_helper'
 require './lib/board'
 require './lib/ship'
 require './lib/player'
@@ -40,10 +40,17 @@ class PlayerTest < Minitest::Test
     assert_equal expected, player_1.player_board.print_board
   end
 
+  def test_ship_placement_is_valid
+    player_1 = Player.new("Tim")
+    player_1.place_ship(player_1.ship_2, "B1 A1")
+    player_1.place_ship(player_1.ship_3, "A2 A3 C4")
+
+  end
+
   def test_can_take_shots_and_get_feedback
     player_1 = Player.new("Tim")
     player_2 = Player.new("George")
-    player_2.place_ship(player_2.ship_2, "A1 B1")
+    player_1.place_ship(player_1.ship_2, "A1 B1")
     player_1.place_ship(player_1.ship_3, "A2 A3 A4")
 
     player_1.shoot("A1", player_2.player_board)
