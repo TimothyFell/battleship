@@ -15,11 +15,24 @@ class Player
 
   end
 
-  def place_ship(ship, coordinates)
-    
+  def place_ship(ship, placement_coords)
+    @player_board.board_hash[placement_coords].contents = ship
+    @player_board.board_hash[placement_coords].appearance = "S"
   end
 
-  def shoot()
+  def shoot(shot_coordinates, board)
+    board.board_hash[shot_coordinates].shot_at = true
+    if board.board_hash[shot_coordinates].appearance == " "
+      board.board_hash[shot_coordinates].appearance = "M"
+      "You shot at #{shot_coordinates} and it was a miss!"
+    elsif board.board_hash[shot_coordinates].appearance == "S"
+      board.board_hash[shot_coordinates].appearance = "H"
+      board.board_hash[shot_coordinates].contents.health -= 1
+      "You shot at #{shot_coordinates} and hit a ship!"
+    else
+      "That is not a valid shot!"
+    end
+  end
 
   # def shoot(indices, board)
   #   indices.flatten
