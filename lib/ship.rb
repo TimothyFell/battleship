@@ -2,10 +2,14 @@ require 'pry'
 
 class Ship
 
-  attr_accessor :size
+  attr_accessor :health
 
-  def initialize(size_arg)
-    @size = size_arg
+  def initialize(health_arg)
+    @health = health_arg
+  end
+
+  def sunk?
+    return true if @health == 0
   end
 
 end

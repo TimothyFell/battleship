@@ -30,19 +30,25 @@ class Board
     }
   end
 
-  def print_board
+  def printable_board
     [ ["=","=","=","=","=","=","=","=","="],
       ["."," ","1"," ","2"," ","3"," ","4"],
-      ["A"," ","#{@board_hash['A1'].appearance}"," ","#{@board_hash['A2'].appearance}"," ","#{@board_hash['A3'].appearance}"," ","#{@board_hash['A4'].appearance}"],
-      ["B"," ","#{@board_hash['B1'].appearance}"," ","#{@board_hash['B2'].appearance}"," ","#{@board_hash['B3'].appearance}"," ","#{@board_hash['B4'].appearance}"],
-      ["C"," ","#{@board_hash['C1'].appearance}"," ","#{@board_hash['C2'].appearance}"," ","#{@board_hash['C3'].appearance}"," ","#{@board_hash['C4'].appearance}"],
-      ["D"," ","#{@board_hash['D1'].appearance}"," ","#{@board_hash['D2'].appearance}"," ","#{@board_hash['D3'].appearance}"," ","#{@board_hash['D4'].appearance}"],
+      ["A"," ","#{board_hash['A1'].appearance}"," ","#{board_hash['A2'].appearance}"," ","#{board_hash['A3'].appearance}"," ","#{board_hash['A4'].appearance}"],
+      ["B"," ","#{board_hash['B1'].appearance}"," ","#{board_hash['B2'].appearance}"," ","#{board_hash['B3'].appearance}"," ","#{board_hash['B4'].appearance}"],
+      ["C"," ","#{board_hash['C1'].appearance}"," ","#{board_hash['C2'].appearance}"," ","#{board_hash['C3'].appearance}"," ","#{board_hash['C4'].appearance}"],
+      ["D"," ","#{board_hash['D1'].appearance}"," ","#{board_hash['D2'].appearance}"," ","#{board_hash['D3'].appearance}"," ","#{board_hash['D4'].appearance}"],
       ["=","=","=","=","=","=","=","=","="] ]
   end
 
-end
+  def print_board
+    @board_name + "\n" +
+    printable_board[0].join + "\n" +
+    printable_board[1].join + "\n" +
+    printable_board[2].join + "\n" +
+    printable_board[3].join + "\n" +
+    printable_board[4].join + "\n" +
+    printable_board[5].join + "\n" +
+    printable_board[6].join
+  end
 
-board = Board.new("Tim")
-board.board_hash['A1'].appearance = "H"
-binding.pry
-puts board.print_board
+end
