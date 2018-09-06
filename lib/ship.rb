@@ -2,19 +2,14 @@ require 'pry'
 
 class Ship
 
-  attr_reader :size
+  attr_accessor :health
 
-  def initialize(size_arg, board_arg)
-    @size = size_arg
-    @board = board_arg
+  def initialize(health_arg)
+    @health = health_arg
   end
 
-  def place(array_indices)
-    array_indices.each do |index_array|
-      row = index_array[0]
-      col = index_array[1]
-      @board.board_array[row][col] = "S"
-    end
+  def sunk?
+    return true if @health == 0
   end
 
 end
